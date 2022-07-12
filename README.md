@@ -1,4 +1,4 @@
-👋 ¡Hola!, soy Alejandro, un joven voluntarioso con muchas ganas de aprender, actualmente estoy cursando el 8vo semestre de la carrera de ingeniería de sistemas, me considero un joven abierto a nuevas oportunidades y nuevos retos, tengo conocimientos basicos en tecnologias de Desarrollo web y Backend.
+👋 ¡Hola!, soy Alejandro, un joven voluntarioso con muchas ganas de aprender, soy Ingeniero de Sistemas, me considero un joven abierto a nuevas oportunidades y nuevos retos, tengo conocimientos de Desarrollo web y Backend.
 
 Puedes contactarme por mi correo 📫 alejandrojcptlfn@gmail.com ó  📫 alejandrojcp_18@hotmail.com
 
