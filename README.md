@@ -1,6 +1,9 @@
-👋 ¡Hola!, soy Alejandro, un joven voluntarioso con muchas ganas de aprender, soy Ingeniero de Sistemas, me considero un joven abierto a nuevas oportunidades y nuevos retos, tengo conocimientos de Desarrollo web y Backend.
+👋 ¡Hola!, soy Alejandro, un joven con muchas ganas de aprender, me considero abierto a nuevas oportunidades y nuevos retos, soy Ingeniero de Sistemas y tengo conocimientos de desarrollo web con PHP/HTML/CSS/JS y backend con JAVA/C#.
 
-Puedes contactarme por mi correo 📫 alejandrojcptlfn@gmail.com ó  📫 alejandrojcp_18@hotmail.com
+Contacto:
+📫 alejandrojcptlfn@gmail.com
+📫 alejandrojcp_18@hotmail.com
+
 
 
 <!---
