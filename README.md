@@ -4,7 +4,7 @@ Contacto:
 📫 alejandrojcptlfn@gmail.com
 📫 alejandrojcp_18@hotmail.com
 
-
+![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=AleJCP&show_icons=true)
 
 ![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=AleJCP&theme=blue-green)
 
