@@ -1,9 +1,6 @@
 Contacto:
 📫 alejandrojcptlfn@gmail.com
 📫 alejandrojcp_18@hotmail.com
-
-![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=AleJCP&theme=blue-green)
-
 ![Profile View Counter](https://komarev.com/ghpvc/?username=AleJCP)
 <!---
 AleJCP/AleJCP is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
