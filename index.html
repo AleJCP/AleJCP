@@ -1005,10 +1005,6 @@
             applyTranslations();
         })();
 
-        document.getElementById('lang-toggle').addEventListener('click', function() {
-            const current = document.documentElement.lang;
-            setLanguage(current === 'en' ? 'es' : 'en');
-        });
     </script>
 
     <!-- Language Toggle -->
@@ -1016,6 +1012,13 @@
         <span id="flag-es" class="flag text-slate-300">ES</span>
         <span id="flag-en" class="flag hidden-flag text-brand">EN</span>
     </button>
+
+    <script>
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            const current = document.documentElement.lang;
+            setLanguage(current === 'en' ? 'es' : 'en');
+        });
+    </script>
 
 </body>
 </html>
