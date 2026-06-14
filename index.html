@@ -32,8 +32,38 @@
         html { scroll-behavior: smooth; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-s1.visible { transition-delay: 0.1s; }
+        .reveal-s2.visible { transition-delay: 0.2s; }
+        .reveal-s3.visible { transition-delay: 0.3s; }
+        .reveal-s4.visible { transition-delay: 0.4s; }
         .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, #06b6d4, #0891b2, #0f172a); top: 0; }
         @media (max-width: 768px) { .timeline::before { left: 16px; } }
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.6s;
+        }
+        .btn-shine:hover::after {
+            left: 100%;
+        }
+        .skill-tag {
+            transition: all 0.25s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px) scale(1.05);
+            border-color: #06b6d4;
+            color: #06b6d4;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 font-sans antialiased">
@@ -69,10 +99,10 @@
             <p class="text-lg sm:text-xl text-slate-400 mb-2 font-medium">Backend Developer</p>
             <p class="text-slate-500 mb-8 max-w-lg mx-auto">C# .NET &amp; PHP · ERP Systems · Integraciones · Automatización</p>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="#projects" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-slate-900 font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:shadow-brand/40">
+                <a href="#projects" class="btn-shine inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-slate-900 font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:shadow-brand/40">
                     <i class="fas fa-rocket"></i> Ver Proyectos
                 </a>
-                <a href="Alejandro Jose Chiquito Petit C V.pdf" download class="inline-flex items-center gap-2 border border-slate-600 hover:border-brand text-slate-300 hover:text-brand font-semibold px-6 py-3 rounded-full transition-all duration-300">
+                <a href="Alejandro Jose Chiquito Petit C V.pdf" download class="btn-shine inline-flex items-center gap-2 border border-slate-600 hover:border-brand text-slate-300 hover:text-brand font-semibold px-6 py-3 rounded-full transition-all duration-300">
                     <i class="fas fa-download"></i> Descargar CV
                 </a>
             </div>
@@ -96,16 +126,16 @@
                         Especializado en el ecosistema <strong class="text-white">.NET (C#)</strong> y <strong class="text-white">PHP</strong>, con experiencia comprobada en desarrollo de sistemas ERP, automatización de procesos empresariales e integración con APIs y hardware. Diseño soluciones backend que escalan, destacando en la implementación de pipelines <strong class="text-brand">CI/CD</strong> y despliegues con <strong class="text-white">Nginx</strong> y <strong class="text-white">Apache</strong> en entornos Linux.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 reveal">
-                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <div class="text-3xl font-extrabold text-brand">40+</div>
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
+                            <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="40" data-suffix="+">0+</span></div>
                             <div class="text-slate-400 text-sm mt-1">Sucursales con deploy<br>automatizado</div>
                         </div>
-                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <div class="text-3xl font-extrabold text-brand">10K+</div>
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
+                            <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="10" data-suffix="K+">0K+</span></div>
                             <div class="text-slate-400 text-sm mt-1">Productos actualizados<br>en tiempo real</div>
                         </div>
-                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <div class="text-3xl font-extrabold text-brand">4+</div>
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
+                            <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="4" data-suffix="+">0+</span></div>
                             <div class="text-slate-400 text-sm mt-1">Años de experiencia<br>en desarrollo</div>
                         </div>
                     </div>
@@ -124,8 +154,8 @@
                 <!-- Job 1 -->
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
-                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">10/2022 — Presente</span>
-                        <h3 class="text-white font-bold text-lg">Desarrollador C# | .NET</h3>
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">08/2022 — Presente</span>
+                        <h3 class="text-white font-bold text-lg">Desarrollador C# | .NET FullStack</h3>
                         <p class="text-slate-400 text-sm">Informática Unix, C.A.</p>
                     </div>
                     <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
@@ -147,12 +177,12 @@
                             <p class="text-slate-400 text-sm">Desarrollé módulo de <strong class="text-white">nómina</strong> adaptado a la legislación venezolana, asegurando compliance y precisión en prestaciones.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C#</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WinForms</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">ASP.NET Core</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WCF</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">SQL Server</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">IIS</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C#</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WinForms</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">ASP.NET Core</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WCF</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">SQL Server</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">IIS</span>
                         </div>
                     </div>
                 </div>
@@ -160,7 +190,7 @@
                 <!-- Job 2 -->
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
-                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">08/2022 — Presente</span>
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">10/2022 — Presente</span>
                         <h3 class="text-white font-bold text-lg">Desarrollador Web</h3>
                         <p class="text-slate-400 text-sm">Freelance / Independiente</p>
                     </div>
@@ -179,18 +209,39 @@
                             <p class="text-slate-400 text-sm">Desplegué aplicaciones web con <strong class="text-white">Laravel</strong>, MVC y MySQL en servidores Linux Ubuntu con Nginx, aplicando CI/CD con <strong class="text-white">GitHub Actions</strong> para despliegues automatizados.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Laravel</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">CodeIgniter</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Nginx</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">GitHub Actions</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Ubuntu</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Laravel</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">CodeIgniter</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Nginx</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">GitHub Actions</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Ubuntu</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Job 3 -->
+                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
+                    <div class="md:w-5/12 md:text-right md:pr-10">
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">03/2023 — 09/2024</span>
+                        <h3 class="text-white font-bold text-lg">Profesor Universitario</h3>
+                        <p class="text-slate-400 text-sm">UNEFA · Lenguaje de Programación I</p>
+                    </div>
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-7/12 md:pl-10 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Formé a <strong class="text-white">+200 estudiantes</strong> en fundamentos de programación estructurada y orientada a objetos con C++, desarrollando contenidos sobre funciones, arreglos, apuntadores y recursividad.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C++</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">POO</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Mentoría Técnica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
                         <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">02/2022 — 07/2022</span>
@@ -212,33 +263,12 @@
                             <p class="text-slate-400 text-sm">Implementé la solución con <strong class="text-white">XAMPP</strong> y hosts virtuales, y capacité al equipo con charla introductoria y <strong class="text-white">manuales de usuario</strong> para adopción inmediata del sistema.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MVC</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">POO</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">XAMPP</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Job 4 -->
-                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
-                    <div class="md:w-5/12 md:text-right md:pr-10">
-                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">01/2017 — 07/2022</span>
-                        <h3 class="text-white font-bold text-lg">Profesor Universitario</h3>
-                        <p class="text-slate-400 text-sm">UNEFA · Lenguaje de Programación I</p>
-                    </div>
-                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
-                    <div class="md:w-7/12 md:pl-10 space-y-3">
-                        <div class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Formé a <strong class="text-white">+100 estudiantes</strong> en fundamentos de programación estructurada y orientada a objetos con C++, desarrollando contenidos sobre funciones, arreglos, apuntadores y recursividad.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C++</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">POO</span>
-                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Mentoría Técnica</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MVC</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">POO</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">XAMPP</span>
+                            <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Bootstrap</span>
                         </div>
                     </div>
                 </div>
@@ -259,15 +289,15 @@
                         <h3 class="text-white font-bold">Backend &amp; Languages</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C#</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">.NET 8</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">ASP.NET Core</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WinForms</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WCF</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PHP</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Laravel</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CodeIgniter</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C++</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C#</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">.NET 8</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">ASP.NET Core</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WinForms</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WCF</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PHP</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Laravel</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CodeIgniter</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C++</span>
                     </div>
                 </div>
                 <!-- Frontend -->
@@ -277,12 +307,12 @@
                         <h3 class="text-white font-bold">Frontend</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">HTML5</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CSS3</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">JavaScript</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Bootstrap</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Tailwind CSS</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">jQuery</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">HTML5</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CSS3</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">JavaScript</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Bootstrap</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Tailwind CSS</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">jQuery</span>
                     </div>
                 </div>
                 <!-- Databases -->
@@ -292,13 +322,13 @@
                         <h3 class="text-white font-bold">Databases &amp; ORMs</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SQL Server</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PostgreSQL</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MySQL</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MariaDB</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Entity Framework</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Eloquent ORM</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Diagrama E-R</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SQL Server</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PostgreSQL</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MySQL</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MariaDB</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Entity Framework</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Eloquent ORM</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Diagrama E-R</span>
                     </div>
                 </div>
                 <!-- DevOps -->
@@ -308,14 +338,14 @@
                         <h3 class="text-white font-bold">DevOps &amp; Infra</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">GitHub Actions</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CI/CD</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">IIS</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Nginx</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Apache</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">XAMPP</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Git</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Ubuntu</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">GitHub Actions</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CI/CD</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">IIS</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Nginx</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Apache</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">XAMPP</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Git</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Ubuntu</span>
                     </div>
                 </div>
                 <!-- Tools -->
@@ -325,11 +355,13 @@
                         <h3 class="text-white font-bold">Tools &amp; IDEs</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Visual Studio</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">DevExpress</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">REST APIs</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SOAP/WCF</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Hikvision ISAPI</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Visual Studio</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">DevExpress</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">REST APIs</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SOAP/WCF</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Hikvision ISAPI</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">OpenCode</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">LLM</span>
                     </div>
                 </div>
                 <!-- Soft Skills + Certification -->
@@ -339,11 +371,11 @@
                         <h3 class="text-white font-bold">Certificaciones &amp; Soft Skills</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
-                        <span class="text-xs bg-rose-500/10 text-rose-300 px-2.5 py-1 rounded-full border border-rose-500/30">EFSET C1 Reading</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Inglés Técnico</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Mentoría</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Autogestión</span>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Resolución de Problemas</span>
+                        <span class="skill-tag text-xs bg-rose-500/10 text-rose-300 px-2.5 py-1 rounded-full border border-rose-500/30">EFSET C1 Reading</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Inglés Técnico</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Mentoría</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Autogestión</span>
+                        <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Resolución de Problemas</span>
                     </div>
                 </div>
             </div>
@@ -371,10 +403,10 @@
                             <div><span class="text-emerald-400 font-semibold">Resultado:</span> Deployments simultáneos en 40+ sucursales. Tiempo de actualización: de 4 horas a 5 minutos.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WCF</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">IIS</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WCF</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">IIS</span>
                         </div>
                     </div>
                 </div>
@@ -393,10 +425,10 @@
                             <div><span class="text-emerald-400 font-semibold">Resultado:</span> +10,000 artículos actualizados en tiempo real. 0% margen de error. Proceso manual eliminado.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">REST API</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">REST API</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
                         </div>
                     </div>
                 </div>
@@ -415,11 +447,11 @@
                             <div><span class="text-emerald-400 font-semibold">Resultado:</span> Automatización completa del registro. Cálculo de nómina: de días a minutos. Cumplimiento legal verificado.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">.NET SDK</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
-                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">ISAPI</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">.NET SDK</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                            <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">ISAPI</span>
                         </div>
                     </div>
                 </div>
@@ -484,7 +516,7 @@
         });
 
         // Intersection Observer for scroll reveal animations
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -492,7 +524,37 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+            if (i % 4 === 1) el.classList.add('reveal-s1');
+            else if (i % 4 === 2) el.classList.add('reveal-s2');
+            else if (i % 4 === 3) el.classList.add('reveal-s3');
+            revealObserver.observe(el);
+        });
+
+        // Counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 1500;
+                    const start = performance.now();
+                    const animate = (now) => {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(eased * target);
+                        el.textContent = current + suffix;
+                        if (progress < 1) requestAnimationFrame(animate);
+                    };
+                    requestAnimationFrame(animate);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
         // Modern copy to clipboard
         function copiarCorreo() {
