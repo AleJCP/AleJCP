@@ -119,6 +119,17 @@
             color: #06b6d4;
             box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
         }
+        #lang-toggle {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #lang-toggle .flag {
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+        #lang-toggle .flag.hidden-flag {
+            transform: scale(0);
+            opacity: 0;
+            position: absolute;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 font-sans antialiased">
@@ -133,12 +144,12 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul id="menu" class="hidden sm:flex flex-col sm:flex-row w-full sm:w-auto mt-3 sm:mt-0 gap-1 sm:gap-6 text-sm font-medium">
-                <li><a href="#about" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Sobre Mí</a></li>
-                <li><a href="#experience" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Experiencia</a></li>
-                <li><a href="#skills" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Skills</a></li>
-                <li><a href="#education" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Educación</a></li>
-                <li><a href="#projects" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Proyectos</a></li>
-                <li><a href="#contact" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Contacto</a></li>
+                <li><a href="#about" data-i18n="nav.about" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Sobre Mí</a></li>
+                <li><a href="#experience" data-i18n="nav.experience" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Experiencia</a></li>
+                <li><a href="#skills" data-i18n="nav.skills" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Skills</a></li>
+                <li><a href="#education" data-i18n="nav.education" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Educación</a></li>
+                <li><a href="#projects" data-i18n="nav.projects" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Proyectos</a></li>
+                <li><a href="#contact" data-i18n="nav.contact" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -152,14 +163,14 @@
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight">
                 Alejandro <span class="text-brand">Chiquito</span>
             </h1>
-            <p class="text-lg sm:text-xl text-slate-400 mb-2 font-medium">Software Engineer</p>
-            <p class="text-slate-500 mb-8 max-w-lg mx-auto">C# .NET &amp; PHP · ERP Systems · Integraciones · Automatización</p>
+            <p data-i18n="hero.role" class="text-lg sm:text-xl text-slate-400 mb-2 font-medium">Software Engineer</p>
+            <p data-i18n="hero.tagline" class="text-slate-500 mb-8 max-w-lg mx-auto">C# .NET &amp; PHP · ERP Systems · Integraciones · Automatización</p>
             <div class="flex flex-wrap justify-center gap-3">
                 <a href="#projects" class="btn-shine inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-slate-900 font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:shadow-brand/40">
-                    <i class="fas fa-rocket"></i> Ver Proyectos
+                    <i class="fas fa-rocket"></i> <span data-i18n="hero.cta1">Ver Proyectos</span>
                 </a>
                 <a href="Alejandro Jose Chiquito Petit C V.pdf" download class="btn-shine inline-flex items-center gap-2 border border-slate-600 hover:border-brand text-slate-300 hover:text-brand font-semibold px-6 py-3 rounded-full transition-all duration-300">
-                    <i class="fas fa-download"></i> Descargar CV
+                    <i class="fas fa-download"></i> <span data-i18n="hero.cta2">Descargar CV</span>
                 </a>
             </div>
         </div>
@@ -176,23 +187,23 @@
                     <img src="assets/img/alejandro.png" alt="Alejandro Chiquito" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <p class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Sobre Mí</p>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">Ingeniero de Sistemas &amp;<br><span class="text-brand">Backend Developer</span></h2>
-                    <p class="text-slate-400 leading-relaxed text-base sm:text-lg reveal">
+                    <p data-i18n="about.label" class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Sobre Mí</p>
+                    <h2 data-i18n-html="about.heading" class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">Ingeniero de Sistemas &amp;<br><span class="text-brand">Backend Developer</span></h2>
+                    <p data-i18n-html="about.bio" class="text-slate-400 leading-relaxed text-base sm:text-lg reveal">
                         Especializado en el ecosistema <strong class="text-white">.NET (C#)</strong> y <strong class="text-white">PHP</strong>, con experiencia comprobada en desarrollo de sistemas ERP, automatización de procesos empresariales e integración con APIs y hardware. Diseño soluciones backend que escalan, destacando en la implementación de pipelines <strong class="text-brand">CI/CD</strong> y despliegues en <strong class="text-white">Windows Server con IIS</strong>, así como <strong class="text-white">Nginx</strong> y <strong class="text-white">Apache</strong> en entornos Linux.
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 reveal">
                         <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
                             <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="40" data-suffix="+">0+</span></div>
-                            <div class="text-slate-400 text-sm mt-1">Sucursales con deploy<br>automatizado</div>
+                            <div data-i18n-html="about.stat1" class="text-slate-400 text-sm mt-1">Sucursales con deploy<br>automatizado</div>
                         </div>
                         <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
                             <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="10" data-suffix="K+">0K+</span></div>
-                            <div class="text-slate-400 text-sm mt-1">Productos actualizados<br>en tiempo real</div>
+                            <div data-i18n-html="about.stat2" class="text-slate-400 text-sm mt-1">Productos actualizados<br>en tiempo real</div>
                         </div>
                         <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center hover:border-brand/40 transition-all duration-300">
                             <div class="text-3xl font-extrabold text-brand"><span class="counter" data-target="4" data-suffix="+">0+</span></div>
-                            <div class="text-slate-400 text-sm mt-1">Años de experiencia<br>en desarrollo</div>
+                            <div data-i18n-html="about.stat3" class="text-slate-400 text-sm mt-1">Años de experiencia<br>en desarrollo</div>
                         </div>
                     </div>
                 </div>
@@ -203,34 +214,34 @@
     <!-- EXPERIENCIA -->
     <section id="experience" class="py-20 sm:py-28 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Experiencia</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Logros de Impacto</h2>
+            <p data-i18n="exp.label" class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Experiencia</p>
+            <h2 data-i18n="exp.heading" class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Logros de Impacto</h2>
 
             <div class="timeline relative space-y-12">
                 <!-- Job 1 -->
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
                         <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">08/2022 — Presente</span>
-                        <h3 class="text-white font-bold text-lg">Desarrollador C# | .NET FullStack</h3>
+                        <h3 data-i18n="exp.j1.title" class="text-white font-bold text-lg">Desarrollador C# | .NET FullStack</h3>
                         <p class="text-slate-400 text-sm">Informática Unix, C.A.</p>
                     </div>
                     <div class="md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10 timeline-dot hidden"></div>
                     <div class="md:w-7/12 md:pl-10 space-y-3">
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Automaticé la actualización de precios para <strong class="text-white">+10,000 artículos</strong> en tiempo real integrando la API de etiquetas electrónicas AIMS, eliminando errores manuales.</p>
+                            <p data-i18n-html="exp.j1.b1" class="text-slate-400 text-sm">Automaticé la actualización de precios para <strong class="text-white">+10,000 artículos</strong> en tiempo real integrando la API de etiquetas electrónicas AIMS, eliminando errores manuales.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Diseñé un sistema centralizado de despliegue que distribuye actualizaciones a <strong class="text-white">40+ sucursales</strong> simultáneamente, reduciendo el tiempo de deployment de horas a minutos.</p>
+                            <p data-i18n-html="exp.j1.b2" class="text-slate-400 text-sm">Diseñé un sistema centralizado de despliegue que distribuye actualizaciones a <strong class="text-white">40+ sucursales</strong> simultáneamente, reduciendo el tiempo de deployment de horas a minutos.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Integré dispositivos biométricos <strong class="text-white">Hikvision</strong> mediante ISAPI y .NET SDK, automatizando el registro de asistencia para el cálculo de nómina.</p>
+                            <p data-i18n-html="exp.j1.b3" class="text-slate-400 text-sm">Integré dispositivos biométricos <strong class="text-white">Hikvision</strong> mediante ISAPI y .NET SDK, automatizando el registro de asistencia para el cálculo de nómina.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Desarrollé módulo de <strong class="text-white">nómina</strong> adaptado a la legislación venezolana, asegurando compliance y precisión en prestaciones.</p>
+                            <p data-i18n-html="exp.j1.b4" class="text-slate-400 text-sm">Desarrollé módulo de <strong class="text-white">nómina</strong> adaptado a la legislación venezolana, asegurando compliance y precisión en prestaciones.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
                             <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C#</span>
@@ -247,22 +258,22 @@
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
                         <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">10/2022 — Presente</span>
-                        <h3 class="text-white font-bold text-lg">Desarrollador Web</h3>
-                        <p class="text-slate-400 text-sm">Freelance / Independiente</p>
+                        <h3 data-i18n="exp.j2.title" class="text-white font-bold text-lg">Desarrollador Web</h3>
+                        <p data-i18n="exp.j2.company" class="text-slate-400 text-sm">Freelance / Independiente</p>
                     </div>
                     <div class="md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10 timeline-dot hidden"></div>
                     <div class="md:w-7/12 md:pl-10 space-y-3">
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Lideré el ciclo completo de desarrollo con clientes directos: desde el <strong class="text-white">análisis de requisitos</strong> hasta la implementación y capacitación, entregando soluciones funcionales con una sola sesión de onboarding.</p>
+                            <p data-i18n-html="exp.j2.b1" class="text-slate-400 text-sm">Lideré el ciclo completo de desarrollo con clientes directos: desde el <strong class="text-white">análisis de requisitos</strong> hasta la implementación y capacitación, entregando soluciones funcionales con una sola sesión de onboarding.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Participé en el <strong class="text-white">mantenimiento evolutivo</strong> de la plataforma enigmaweb.cl con <strong class="text-white">PHP CodeIgniter</strong>, implementando nuevos módulos sin afectar la operación del sistema en producción.</p>
+                            <p data-i18n-html="exp.j2.b2" class="text-slate-400 text-sm">Participé en el <strong class="text-white">mantenimiento evolutivo</strong> de la plataforma enigmaweb.cl con <strong class="text-white">PHP CodeIgniter</strong>, implementando nuevos módulos sin afectar la operación del sistema en producción.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Desplegué aplicaciones web con <strong class="text-white">Laravel</strong>, MVC y MySQL en servidores Linux Ubuntu con Nginx, aplicando CI/CD con <strong class="text-white">GitHub Actions</strong> para despliegues automatizados.</p>
+                            <p data-i18n-html="exp.j2.b3" class="text-slate-400 text-sm">Desplegué aplicaciones web con <strong class="text-white">Laravel</strong>, MVC y MySQL en servidores Linux Ubuntu con Nginx, aplicando CI/CD con <strong class="text-white">GitHub Actions</strong> para despliegues automatizados.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
                             <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
@@ -280,14 +291,14 @@
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
                         <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">03/2023 — 09/2024</span>
-                        <h3 class="text-white font-bold text-lg">Profesor Universitario</h3>
-                        <p class="text-slate-400 text-sm">UNEFA · Lenguaje de Programación I</p>
+                        <h3 data-i18n="exp.j3.title" class="text-white font-bold text-lg">Profesor Universitario</h3>
+                        <p data-i18n="exp.j3.company" class="text-slate-400 text-sm">UNEFA · Lenguaje de Programación I</p>
                     </div>
                     <div class="md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10 timeline-dot hidden"></div>
                     <div class="md:w-7/12 md:pl-10 space-y-3">
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Formé a <strong class="text-white">+200 estudiantes</strong> en fundamentos de programación estructurada y orientada a objetos con C++, desarrollando contenidos sobre funciones, arreglos, apuntadores y recursividad.</p>
+                            <p data-i18n-html="exp.j3.b1" class="text-slate-400 text-sm">Formé a <strong class="text-white">+200 estudiantes</strong> en fundamentos de programación estructurada y orientada a objetos con C++, desarrollando contenidos sobre funciones, arreglos, apuntadores y recursividad.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
                             <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C++</span>
@@ -301,22 +312,22 @@
                 <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
                     <div class="md:w-5/12 md:text-right md:pr-10">
                         <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">02/2022 — 07/2022</span>
-                        <h3 class="text-white font-bold text-lg">Desarrollador Web</h3>
-                        <p class="text-slate-400 text-sm">Hospital Dr. Jesús García Coello IVSS</p>
+                        <h3 data-i18n="exp.j4.title" class="text-white font-bold text-lg">Desarrollador Web</h3>
+                        <p data-i18n="exp.j4.company" class="text-slate-400 text-sm">Hospital Dr. Jesús García Coello IVSS</p>
                     </div>
                     <div class="md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10 timeline-dot hidden"></div>
                     <div class="md:w-7/12 md:pl-10 space-y-3">
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Analicé <strong class="text-white">requerimientos de información</strong> para diseñar una solución a la medida, aplicando metodología de desarrollo iterativa alineada a las necesidades del hospital.</p>
+                            <p data-i18n-html="exp.j4.b1" class="text-slate-400 text-sm">Analicé <strong class="text-white">requerimientos de información</strong> para diseñar una solución a la medida, aplicando metodología de desarrollo iterativa alineada a las necesidades del hospital.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Desarrollé el sistema con <strong class="text-white">patrones MVC</strong> y paradigma orientado a objetos, asegurando código mantenible y escalable para futuras ampliaciones.</p>
+                            <p data-i18n-html="exp.j4.b2" class="text-slate-400 text-sm">Desarrollé el sistema con <strong class="text-white">patrones MVC</strong> y paradigma orientado a objetos, asegurando código mantenible y escalable para futuras ampliaciones.</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
-                            <p class="text-slate-400 text-sm">Implementé la solución con <strong class="text-white">XAMPP</strong> y hosts virtuales, y capacité al equipo con charla introductoria y <strong class="text-white">manuales de usuario</strong> para adopción inmediata del sistema.</p>
+                            <p data-i18n-html="exp.j4.b3" class="text-slate-400 text-sm">Implementé la solución con <strong class="text-white">XAMPP</strong> y hosts virtuales, y capacité al equipo con charla introductoria y <strong class="text-white">manuales de usuario</strong> para adopción inmediata del sistema.</p>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-3">
                             <span class="skill-tag text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
@@ -335,14 +346,14 @@
     <!-- SKILLS -->
     <section id="skills" class="py-20 sm:py-28 bg-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Tech Stack</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Skills</h2>
+            <p data-i18n="skills.label" class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Tech Stack</p>
+            <h2 data-i18n="skills.heading" class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 <!-- Backend -->
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-brand/15 flex items-center justify-center"><i class="fas fa-code text-brand"></i></div>
-                        <h3 class="text-white font-bold">Backend &amp; Languages</h3>
+                        <h3 data-i18n="skills.cat1" class="text-white font-bold">Backend &amp; Languages</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C#</span>
@@ -360,7 +371,7 @@
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center"><i class="fas fa-paint-brush text-emerald-400"></i></div>
-                        <h3 class="text-white font-bold">Frontend</h3>
+                        <h3 data-i18n="skills.cat2" class="text-white font-bold">Frontend</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">HTML5</span>
@@ -375,7 +386,7 @@
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center"><i class="fas fa-database text-cyan-400"></i></div>
-                        <h3 class="text-white font-bold">Databases &amp; ORMs</h3>
+                        <h3 data-i18n="skills.cat3" class="text-white font-bold">Databases &amp; ORMs</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SQL Server</span>
@@ -391,7 +402,7 @@
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center"><i class="fas fa-cloud-upload-alt text-purple-400"></i></div>
-                        <h3 class="text-white font-bold">DevOps &amp; Infra</h3>
+                        <h3 data-i18n="skills.cat4" class="text-white font-bold">DevOps &amp; Infra</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">GitHub Actions</span>
@@ -408,7 +419,7 @@
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center"><i class="fas fa-tools text-amber-400"></i></div>
-                        <h3 class="text-white font-bold">Tools &amp; IDEs</h3>
+                        <h3 data-i18n="skills.cat5" class="text-white font-bold">Tools &amp; IDEs</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Visual Studio</span>
@@ -424,7 +435,7 @@
                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-rose-500/15 flex items-center justify-center"><i class="fas fa-star text-rose-400"></i></div>
-                        <h3 class="text-white font-bold">Soft Skills</h3>
+                        <h3 data-i18n="skills.cat6" class="text-white font-bold">Soft Skills</h3>
                     </div>
                     <div class="flex flex-wrap gap-1.5">
                         <span class="skill-tag text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Inglés Técnico</span>
@@ -440,8 +451,8 @@
     <!-- EDUCACIÓN & CERTIFICACIONES -->
     <section id="education" class="py-20 sm:py-28 bg-slate-900">
         <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Formación</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Educación &amp; Certificaciones</h2>
+            <p data-i18n="edu.label" class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Formación</p>
+            <h2 data-i18n="edu.heading" class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Educación &amp; Certificaciones</h2>
 
             <!-- Grado universitario -->
             <div class="bg-slate-800 border border-slate-700/50 rounded-2xl p-6 sm:p-8 mb-8 reveal max-w-3xl mx-auto">
@@ -452,7 +463,7 @@
                     <div>
                         <h3 class="text-white font-bold text-xl mb-1">Ingeniería de Sistemas</h3>
                         <p class="text-brand font-medium text-sm mb-3">UNEFA · Universidad Nacional Experimental Politécnica de la Fuerza Armada</p>
-                        <p class="text-slate-400 text-sm leading-relaxed">
+                        <p data-i18n="edu.degree.desc" class="text-slate-400 text-sm leading-relaxed">
                             Formación en programación estructurada y orientada a objetos, bases de datos, desarrollo de sistemas de información y metodologías de ingeniería de software.
                         </p>
                     </div>
@@ -468,7 +479,7 @@
                             <i class="fas fa-language text-cyan-400"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-semibold text-sm leading-tight">EF SET<br>C1 Advanced</h4>
+                            <h4 data-i18n-html="cert.efset" class="text-white font-semibold text-sm leading-tight">EF SET<br>C1 Advanced</h4>
                         </div>
                     </div>
                     <div class="space-y-1.5 text-sm">
@@ -493,7 +504,7 @@
                         <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center flex-shrink-0">
                             <i class="fab fa-php text-purple-400 text-xl"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-sm">PHP Course</h4>
+                        <h4 data-i18n="cert.php" class="text-white font-semibold text-sm">PHP Course</h4>
                     </div>
                     <p class="text-slate-400 text-xs mb-2">Sololearn</p>
                     <div class="flex flex-wrap gap-1.5 mb-3">
@@ -511,7 +522,7 @@
                         <div class="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-database text-cyan-400"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-sm">SQL Fundamentals</h4>
+                        <h4 data-i18n="cert.sql" class="text-white font-semibold text-sm">SQL Fundamentals</h4>
                     </div>
                     <p class="text-slate-400 text-xs mb-2">Sololearn</p>
                     <div class="flex flex-wrap gap-1.5 mb-3">
@@ -529,7 +540,7 @@
                         <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center flex-shrink-0">
                             <i class="fab fa-java text-amber-400 text-xl"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-sm">Java Tutorial</h4>
+                        <h4 data-i18n="cert.java" class="text-white font-semibold text-sm">Java Tutorial</h4>
                     </div>
                     <p class="text-slate-400 text-xs mb-2">Sololearn</p>
                     <div class="flex flex-wrap gap-1.5 mb-3">
@@ -546,7 +557,7 @@
                         <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-mobile-alt text-emerald-400"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-sm">Desarrollo de Apps Móviles</h4>
+                        <h4 data-i18n="cert.movil" class="text-white font-semibold text-sm">Desarrollo de Apps Móviles</h4>
                     </div>
                     <p class="text-slate-400 text-xs mb-2">Google Actívate</p>
                     <div class="flex flex-wrap gap-1.5 mb-3">
@@ -563,7 +574,7 @@
                         <div class="w-10 h-10 rounded-lg bg-rose-500/15 flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-microphone text-rose-400"></i>
                         </div>
-                        <h4 class="text-white font-semibold text-sm">Cómo Hablar Bien en Público</h4>
+                        <h4 data-i18n="cert.coursera" class="text-white font-semibold text-sm">Cómo Hablar Bien en Público</h4>
                     </div>
                     <p class="text-slate-400 text-xs mb-2">Coursera</p>
                     <div class="flex flex-wrap gap-1.5 mb-3">
@@ -580,8 +591,8 @@
     <!-- PROYECTOS -->
     <section id="projects" class="py-20 sm:py-28 bg-slate-900">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Portafolio</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Casos de Estudio</h2>
+            <p data-i18n="proj.label" class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Portafolio</p>
+            <h2 data-i18n="proj.heading" class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Casos de Estudio</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 <!-- Project 1 -->
@@ -590,12 +601,12 @@
                         <img src="assets/img/projects/proyecto-1.jpg" alt="Sistema de Despliegue ERP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">DevOps &middot; CI/CD</span>
-                        <h3 class="text-white font-bold text-lg mb-3">Sistema Centralizado de Despliegue</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p1.badge">DevOps &middot; CI/CD</span>
+                        <h3 data-i18n="proj.p1.title" class="text-white font-bold text-lg mb-3">Sistema Centralizado de Despliegue</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> 40+ sucursales requerían actualizaciones manuales de software, causando inconsistencias y horas de downtime.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Arquitectura cliente-servidor con WCF, pipeline CI/CD, actualizador incremental automático.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Deployments simultáneos en 40+ sucursales. Tiempo de actualización: de 4 horas a 5 minutos.</div>
+                            <div data-i18n-html="proj.p1.problem"><span class="text-amber-400 font-semibold">Problema:</span> 40+ sucursales requerían actualizaciones manuales de software, causando inconsistencias y horas de downtime.</div>
+                            <div data-i18n-html="proj.p1.process"><span class="text-brand font-semibold">Proceso:</span> Arquitectura cliente-servidor con WCF, pipeline CI/CD, actualizador incremental automático.</div>
+                            <div data-i18n-html="proj.p1.result"><span class="text-emerald-400 font-semibold">Resultado:</span> Deployments simultáneos en 40+ sucursales. Tiempo de actualización: de 4 horas a 5 minutos.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WCF</span>
@@ -612,12 +623,12 @@
                         <img src="assets/img/projects/proyecto-2.jpg" alt="Módulo de Precios API AIMS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Integración &middot; API</span>
-                        <h3 class="text-white font-bold text-lg mb-3">Actualización de Precios con API AIMS</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p2.badge">Integración &middot; API</span>
+                        <h3 data-i18n="proj.p2.title" class="text-white font-bold text-lg mb-3">Actualización de Precios con API AIMS</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> Actualización manual de precios en etiquetas electrónicas para +10,000 productos, propensa a errores.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Integración con API REST de AIMS, módulo batch en WinForms, sincronización con SQL Server.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> +10,000 artículos actualizados en tiempo real. 0% margen de error. Proceso manual eliminado.</div>
+                            <div data-i18n-html="proj.p2.problem"><span class="text-amber-400 font-semibold">Problema:</span> Actualización manual de precios en etiquetas electrónicas para +10,000 productos, propensa a errores.</div>
+                            <div data-i18n-html="proj.p2.process"><span class="text-brand font-semibold">Proceso:</span> Integración con API REST de AIMS, módulo batch en WinForms, sincronización con SQL Server.</div>
+                            <div data-i18n-html="proj.p2.result"><span class="text-emerald-400 font-semibold">Resultado:</span> +10,000 artículos actualizados en tiempo real. 0% margen de error. Proceso manual eliminado.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
@@ -634,12 +645,12 @@
                         <img src="assets/img/projects/proyecto-3.jpg" alt="Sistema de Nómina Biométrico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Hardware &middot; SDK</span>
-                        <h3 class="text-white font-bold text-lg mb-3">Nómina + Integración Biométrica Hikvision</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p3.badge">Hardware &middot; SDK</span>
+                        <h3 data-i18n="proj.p3.title" class="text-white font-bold text-lg mb-3">Nómina + Integración Biométrica Hikvision</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> Registro manual de asistencia y cálculo de horas/hombre para nómina, sujeto a errores y fraudes.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Integración de dispositivos Hikvision vía ISAPI/.NET SDK. Lógica de nómina adaptada a LOTTT venezolana.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Automatización completa del registro. Cálculo de nómina: de días a minutos. Cumplimiento legal verificado.</div>
+                            <div data-i18n-html="proj.p3.problem"><span class="text-amber-400 font-semibold">Problema:</span> Registro manual de asistencia y cálculo de horas/hombre para nómina, sujeto a errores y fraudes.</div>
+                            <div data-i18n-html="proj.p3.process"><span class="text-brand font-semibold">Proceso:</span> Integración de dispositivos Hikvision vía ISAPI/.NET SDK. Lógica de nómina adaptada a LOTTT venezolana.</div>
+                            <div data-i18n-html="proj.p3.result"><span class="text-emerald-400 font-semibold">Resultado:</span> Automatización completa del registro. Cálculo de nómina: de días a minutos. Cumplimiento legal verificado.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
@@ -657,12 +668,12 @@
                         <img src="assets/img/projects/proyecto-4.jpg" alt="EnigmaWeb - Plataforma de Cifrado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Seguridad &middot; Cifrado</span>
-                        <h3 class="text-white font-bold text-lg mb-3">EnigmaWeb — Plataforma de Cifrado</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p4.badge">Seguridad &middot; Cifrado</span>
+                        <h3 data-i18n="proj.p4.title" class="text-white font-bold text-lg mb-3">EnigmaWeb — Plataforma de Cifrado</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> Usuarios y organizaciones necesitaban proteger información sensible sin depender de servicios externos ni exponer datos a terceros.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Desarrollo de plataforma exclusiva de cifrado de textos con PHP CodeIgniter (MVC) + MySQL. Autenticación segura, panel de administración y gestión de datos cifrados.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Plataforma única en su tipo que administra información sensible de forma segura. Acceso controlado, cifrado extremo a extremo sin dependencia de APIs externas.</div>
+                            <div data-i18n-html="proj.p4.problem"><span class="text-amber-400 font-semibold">Problema:</span> Usuarios y organizaciones necesitaban proteger información sensible sin depender de servicios externos ni exponer datos a terceros.</div>
+                            <div data-i18n-html="proj.p4.process"><span class="text-brand font-semibold">Proceso:</span> Desarrollo de plataforma exclusiva de cifrado de textos con PHP CodeIgniter (MVC) + MySQL. Autenticación segura, panel de administración y gestión de datos cifrados.</div>
+                            <div data-i18n-html="proj.p4.result"><span class="text-emerald-400 font-semibold">Resultado:</span> Plataforma única en su tipo que administra información sensible de forma segura. Acceso controlado, cifrado extremo a extremo sin dependencia de APIs externas.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">PHP</span>
@@ -680,12 +691,12 @@
                         <img src="assets/img/projects/proyecto-5.jpg" alt="MiaPizza - Sistema de Pedidos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">E-Commerce &middot; Pedidos</span>
-                        <h3 class="text-white font-bold text-lg mb-3">MiaPizza — Sistema de Pedidos</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p5.badge">E-Commerce &middot; Pedidos</span>
+                        <h3 data-i18n="proj.p5.title" class="text-white font-bold text-lg mb-3">MiaPizza — Sistema de Pedidos</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> Pizzería sin canal de venta online. Pedidos telefónicos propensos a errores y sin trazabilidad.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Desarrollo con HTML/CSS/JS, PHP y MariaDB. Arquitectura cliente-admin con carrito de compras, tienda online y panel de gestión de órdenes.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Sistema de pedidos digital con gestión de usuarios y administración de órdenes. Experiencia de compra fluida para el cliente final.</div>
+                            <div data-i18n-html="proj.p5.problem"><span class="text-amber-400 font-semibold">Problema:</span> Pizzería sin canal de venta online. Pedidos telefónicos propensos a errores y sin trazabilidad.</div>
+                            <div data-i18n-html="proj.p5.process"><span class="text-brand font-semibold">Proceso:</span> Desarrollo con HTML/CSS/JS, PHP y MariaDB. Arquitectura cliente-admin con carrito de compras, tienda online y panel de gestión de órdenes.</div>
+                            <div data-i18n-html="proj.p5.result"><span class="text-emerald-400 font-semibold">Resultado:</span> Sistema de pedidos digital con gestión de usuarios y administración de órdenes. Experiencia de compra fluida para el cliente final.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">PHP</span>
@@ -702,12 +713,12 @@
                         <img src="assets/img/projects/proyecto-6.jpg" alt="Plataforma de Agendamiento WhatsApp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-grow">
-                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Automatización &middot; WhatsApp</span>
-                        <h3 class="text-white font-bold text-lg mb-3">Plataforma de Agendamiento vía WhatsApp</h3>
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1" data-i18n="proj.p6.badge">Automatización &middot; WhatsApp</span>
+                        <h3 data-i18n="proj.p6.title" class="text-white font-bold text-lg mb-3">Plataforma de Agendamiento vía WhatsApp</h3>
                         <div class="space-y-3 text-sm text-slate-400 flex-grow">
-                            <div><span class="text-amber-400 font-semibold">Problema:</span> Negocio requería automatizar el agendamiento de citas sin intervención manual, eliminando llamadas y mensajes repetitivos.</div>
-                            <div><span class="text-brand font-semibold">Proceso:</span> Desarrollo con Laravel 12, integración con Evolution API para mensajería WhatsApp, sistema de Queues para procesamiento asíncrono y notificaciones in-app en tiempo real.</div>
-                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Plataforma completamente automatizada: el cliente agenda, confirma y recibe recordatorios vía WhatsApp sin intervención humana. Procesamiento asíncrono escalable.</div>
+                            <div data-i18n-html="proj.p6.problem"><span class="text-amber-400 font-semibold">Problema:</span> Negocio requería automatizar el agendamiento de citas sin intervención manual, eliminando llamadas y mensajes repetitivos.</div>
+                            <div data-i18n-html="proj.p6.process"><span class="text-brand font-semibold">Proceso:</span> Desarrollo con Laravel 12, integración con Evolution API para mensajería WhatsApp, sistema de Queues para procesamiento asíncrono y notificaciones in-app en tiempo real.</div>
+                            <div data-i18n-html="proj.p6.result"><span class="text-emerald-400 font-semibold">Resultado:</span> Plataforma completamente automatizada: el cliente agenda, confirma y recibe recordatorios vía WhatsApp sin intervención humana. Procesamiento asíncrono escalable.</div>
                         </div>
                         <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="skill-tag text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">Laravel 12</span>
@@ -726,19 +737,19 @@
     <!-- CONTACTO -->
     <section id="contact" class="py-20 sm:py-28 bg-slate-950">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <p class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Contacto</p>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">¿Trabajamos Juntos?</h2>
-            <p class="text-slate-400 text-base sm:text-lg mb-10 reveal max-w-xl mx-auto">
+            <p data-i18n="contact.label" class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Contacto</p>
+            <h2 data-i18n="contact.heading" class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">¿Trabajamos Juntos?</h2>
+            <p data-i18n="contact.text" class="text-slate-400 text-base sm:text-lg mb-10 reveal max-w-xl mx-auto">
                 Abierto a oportunidades como Backend Developer. Si buscas a alguien que entregue resultados medibles, conversemos.
             </p>
             <div class="flex flex-wrap justify-center gap-4 reveal">
                 <a href="https://www.linkedin.com/in/alejcp" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium">
-                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                    <i class="fab fa-linkedin-in"></i> <span data-i18n="contact.linkedin">LinkedIn</span>
                 </a>
                 <a href="https://github.com/AleJCP" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium">
-                    <i class="fab fa-github"></i> GitHub
+                    <i class="fab fa-github"></i> <span data-i18n="contact.github">GitHub</span>
                 </a>
                 <button onclick="copiarCorreo()"
                     class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium cursor-pointer">
@@ -748,8 +759,7 @@
             <div class="mt-8 reveal">
                 <a href="Alejandro Jose Chiquito Petit C V.pdf" download
                     class="inline-flex items-center gap-2 text-slate-500 hover:text-brand transition-colors text-sm">
-                    <i class="fas fa-file-pdf"></i> Descargar CV (PDF)
-                </a>
+                    <i class="fas fa-file-pdf"></i> <span data-i18n="contact.cv">Descargar CV (PDF)</span></a>
             </div>
         </div>
     </section>
@@ -825,8 +835,8 @@
             const btn = document.getElementById('email-text');
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(email).then(() => {
-                    btn.textContent = '¡Copiado!';
-                    setTimeout(() => btn.textContent = 'Copiar Email', 2000);
+                    btn.textContent = t('contact.copyed');
+                    setTimeout(() => btn.textContent = t('contact.email_btn'), 2000);
                 });
             } else {
                 const aux = document.createElement('input');
@@ -835,10 +845,177 @@
                 aux.select();
                 document.execCommand('copy');
                 document.body.removeChild(aux);
-                btn.textContent = '¡Copiado!';
-                setTimeout(() => btn.textContent = 'Copiar Email', 2000);
+                btn.textContent = t('contact.copyed');
+                setTimeout(() => btn.textContent = t('contact.email_btn'), 2000);
             }
         }
+
+        // === i18n ===
+        const translations = {
+            en: {
+                "nav.about": "About Me",
+                "nav.experience": "Experience",
+                "nav.skills": "Skills",
+                "nav.education": "Education",
+                "nav.projects": "Projects",
+                "nav.contact": "Contact",
+                "hero.role": "Software Engineer",
+                "hero.tagline": "C# .NET &amp; PHP · ERP Systems · Integrations · Automation",
+                "hero.cta1": "View Projects",
+                "hero.cta2": "Download CV",
+                "about.label": "About Me",
+                "about.heading": "Systems Engineer &amp;<br><span class=\"text-brand\">Software Engineer</span>",
+                "about.bio": "Specialized in the <strong class=\"text-white\">.NET (C#)</strong> and <strong class=\"text-white\">PHP</strong> ecosystem, with proven experience in ERP system development, enterprise process automation, and API and hardware integration. I design backend solutions that scale, standing out in the implementation of <strong class=\"text-brand\">CI/CD</strong> pipelines and deployments on <strong class=\"text-white\">Windows Server with IIS</strong>, as well as <strong class=\"text-white\">Nginx</strong> and <strong class=\"text-white\">Apache</strong> on Linux environments.",
+                "about.stat1": "Branches with automated<br>deployment",
+                "about.stat2": "Products updated<br>in real time",
+                "about.stat3": "Years of experience<br>in development",
+                "exp.label": "Experience",
+                "exp.heading": "Impact Achievements",
+                "exp.j1.title": "C# | .NET Developer",
+                "exp.j1.b1": "Automated price updates for <strong class=\"text-white\">+10,000 items</strong> in real time by integrating the AIMS electronic label API, eliminating manual errors.",
+                "exp.j1.b2": "Designed a centralized deployment system that distributes updates to <strong class=\"text-white\">40+ branches</strong> simultaneously, reducing deployment time from hours to minutes.",
+                "exp.j1.b3": "Integrated <strong class=\"text-white\">Hikvision</strong> biometric devices via ISAPI and .NET SDK, automating attendance recording for payroll calculation.",
+                "exp.j1.b4": "Developed a <strong class=\"text-white\">payroll</strong> module adapted to Venezuelan labor law, ensuring compliance and accuracy in benefits.",
+                "exp.j2.title": "Web Developer",
+                "exp.j2.company": "Freelance / Self-Employed",
+                "exp.j2.b1": "Led the complete development cycle with direct clients: from <strong class=\"text-white\">requirements analysis</strong> to implementation and training, delivering functional solutions with a single onboarding session.",
+                "exp.j2.b2": "Participated in the <strong class=\"text-white\">evolutionary maintenance</strong> of the enigmaweb.cl platform with <strong class=\"text-white\">PHP CodeIgniter</strong>, implementing new modules without affecting the production system's operation.",
+                "exp.j2.b3": "Deployed web applications with <strong class=\"text-white\">Laravel</strong>, MVC, and MySQL on Ubuntu Linux servers with Nginx, applying CI/CD with <strong class=\"text-white\">GitHub Actions</strong> for automated deployments.",
+                "exp.j3.title": "University Professor",
+                "exp.j3.company": "UNEFA · Programming Language I",
+                "exp.j3.b1": "Taught <strong class=\"text-white\">+200 students</strong> the fundamentals of structured and object-oriented programming with C++, developing content on functions, arrays, pointers, and recursion.",
+                "exp.j4.title": "Web Developer",
+                "exp.j4.company": "Hospital Dr. Jesús García Coello IVSS",
+                "exp.j4.b1": "Analyzed <strong class=\"text-white\">information requirements</strong> to design a tailored solution, applying iterative development methodology aligned with hospital needs.",
+                "exp.j4.b2": "Developed the system using <strong class=\"text-white\">MVC patterns</strong> and object-oriented paradigm, ensuring maintainable and scalable code for future expansions.",
+                "exp.j4.b3": "Implemented the solution with <strong class=\"text-white\">XAMPP</strong> and virtual hosts, and trained the team with an introductory talk and <strong class=\"text-white\">user manuals</strong> for immediate system adoption.",
+                "skills.label": "Tech Stack",
+                "skills.heading": "Skills",
+                "skills.cat1": "Backend &amp; Languages",
+                "skills.cat2": "Frontend",
+                "skills.cat3": "Databases &amp; ORMs",
+                "skills.cat4": "DevOps &amp; Infra",
+                "skills.cat5": "Tools &amp; IDEs",
+                "skills.cat6": "Soft Skills",
+                "edu.label": "Education",
+                "edu.heading": "Education &amp; Certifications",
+                "edu.degree.desc": "Training in structured and object-oriented programming, databases, information systems development, and software engineering methodologies.",
+                "cert.efset": "EF SET<br>C1 Advanced",
+                "cert.php": "PHP Course",
+                "cert.sql": "SQL Fundamentals",
+                "cert.java": "Java Tutorial",
+                "cert.movil": "Mobile App Development",
+                "cert.coursera": "How to Speak in Public",
+                "proj.label": "Portfolio",
+                "proj.heading": "Case Studies",
+                "proj.p1.badge": "DevOps · CI/CD",
+                "proj.p1.title": "Centralized Deployment System",
+                "proj.p1.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> 40+ branches required manual software updates, causing inconsistencies and hours of downtime.",
+                "proj.p1.process": "<span class=\"text-brand font-semibold\">Process:</span> Client-server architecture with WCF, CI/CD pipeline, automatic incremental updater.",
+                "proj.p1.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> Simultaneous deployments across 40+ branches. Update time: from 4 hours to 5 minutes.",
+                "proj.p2.badge": "Integration · API",
+                "proj.p2.title": "Price Update Module with AIMS API",
+                "proj.p2.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> Manual price updates on electronic shelf labels for +10,000 products, prone to human error.",
+                "proj.p2.process": "<span class=\"text-brand font-semibold\">Process:</span> Integration with AIMS REST API, batch module in WinForms, synchronization with SQL Server.",
+                "proj.p2.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> +10,000 items updated in real time. 0% error margin. Manual process eliminated.",
+                "proj.p3.badge": "Hardware · SDK",
+                "proj.p3.title": "Payroll + Hikvision Biometric Integration",
+                "proj.p3.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> Manual attendance recording and man-hour calculation for payroll, prone to errors and fraud.",
+                "proj.p3.process": "<span class=\"text-brand font-semibold\">Process:</span> Integration of Hikvision devices via ISAPI/.NET SDK. Payroll logic adapted to Venezuelan labor law.",
+                "proj.p3.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> Complete automation of attendance recording. Payroll calculation: from days to minutes. Legal compliance verified.",
+                "proj.p4.badge": "Security · Encryption",
+                "proj.p4.title": "EnigmaWeb — Encryption Platform",
+                "proj.p4.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> Users and organizations needed to protect sensitive information without relying on external services or exposing data to third parties.",
+                "proj.p4.process": "<span class=\"text-brand font-semibold\">Process:</span> Development of an exclusive text encryption platform with PHP CodeIgniter (MVC) + MySQL. Secure authentication, admin panel, and encrypted data management.",
+                "proj.p4.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> One-of-a-kind platform that securely manages sensitive information. Controlled access, end-to-end encryption with no external API dependencies.",
+                "proj.p5.badge": "E-Commerce · Orders",
+                "proj.p5.title": "MiaPizza — Ordering System",
+                "proj.p5.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> Pizzeria without an online sales channel. Phone orders prone to errors and lack of traceability.",
+                "proj.p5.process": "<span class=\"text-brand font-semibold\">Process:</span> Development with HTML/CSS/JS, PHP, and MariaDB. Client-admin architecture with shopping cart, online store, and order management panel.",
+                "proj.p5.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> Digital ordering system with user management and order administration. Smooth purchasing experience for the end customer.",
+                "proj.p6.badge": "Automation · WhatsApp",
+                "proj.p6.title": "WhatsApp Appointment Scheduling Platform",
+                "proj.p6.problem": "<span class=\"text-amber-400 font-semibold\">Problem:</span> Business required automated appointment scheduling without manual intervention, eliminating repetitive calls and messages.",
+                "proj.p6.process": "<span class=\"text-brand font-semibold\">Process:</span> Development with Laravel 12, Evolution API integration for WhatsApp messaging, Queues system for asynchronous processing, and real-time in-app notifications.",
+                "proj.p6.result": "<span class=\"text-emerald-400 font-semibold\">Result:</span> Fully automated platform: clients schedule, confirm, and receive reminders via WhatsApp without human intervention. Scalable asynchronous processing.",
+                "contact.label": "Contact",
+                "contact.heading": "Let's Work Together?",
+                "contact.text": "Open to opportunities as a Software Engineer. If you're looking for someone who delivers measurable results, let's talk.",
+                "contact.email_btn": "Copy Email",
+                "contact.copyed": "Copied!",
+                "contact.linkedin": "LinkedIn",
+                "contact.github": "GitHub",
+                "contact.cv": "Download CV (PDF)",
+                "footer.copy": "© 2026 Alejandro Chiquito Petit. All rights reserved."
+            }
+        };
+
+        const LOCALE_KEY = 'portfolio-lang';
+
+        function t(key) {
+            const lang = document.documentElement.lang;
+            if (lang === 'en' && translations.en[key]) {
+                return translations.en[key];
+            }
+            return null;
+        }
+
+        function applyTranslations() {
+            const lang = document.documentElement.lang;
+            const flagEs = document.getElementById('flag-es');
+            const flagEn = document.getElementById('flag-en');
+
+            if (lang === 'en') {
+                flagEs.classList.add('hidden-flag');
+                flagEn.classList.remove('hidden-flag');
+            } else {
+                flagEn.classList.add('hidden-flag');
+                flagEs.classList.remove('hidden-flag');
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const text = t(key);
+                if (text) el.textContent = text;
+            });
+
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                const html = t(key);
+                if (html) el.innerHTML = html;
+            });
+
+            // Update email button text
+            const emailBtn = document.getElementById('email-text');
+            if (emailBtn && t('contact.email_btn')) {
+                emailBtn.textContent = t('contact.email_btn');
+            }
+        }
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem(LOCALE_KEY, lang);
+            applyTranslations();
+        }
+
+        // Init
+        (function() {
+            const saved = localStorage.getItem(LOCALE_KEY);
+            if (saved) document.documentElement.lang = saved;
+            applyTranslations();
+        })();
+
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            const current = document.documentElement.lang;
+            setLanguage(current === 'en' ? 'es' : 'en');
+        });
     </script>
+
+    <!-- Language Toggle -->
+    <button id="lang-toggle" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-slate-800 border border-slate-600 shadow-xl hover:shadow-brand/30 hover:border-brand hover:scale-110 flex items-center justify-center text-lg" aria-label="Cambiar idioma" title="Cambiar idioma">
+        <span id="flag-es" class="flag" style="font-size:1.3rem;">🇪🇸</span>
+        <span id="flag-en" class="flag" style="font-size:1.3rem;">🇺🇸</span>
+    </button>
+
 </body>
 </html>
