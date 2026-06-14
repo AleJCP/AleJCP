@@ -1,451 +1,505 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Desarrollador de Software, Abierto a nuevos retos, ¡Contáctame!">
-	<meta name="google-site-verification" content="1ot27V_u4cUhiqvssFw0MKFLW4Nfhl-wHCmP7tu-3TA" />	
-	<title>AleJCP - Ingeniero de Sistemas</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css">
-  <link rel="icon" href="https://alejcp.github.io/AleJCP/favicon.ico">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alejandro Chiquito — Backend Developer especializado en C# .NET y PHP. Sistemas ERP, automatización e integraciones.">
+    <meta name="google-site-verification" content="1ot27V_u4cUhiqvssFw0MKFLW4Nfhl-wHCmP7tu-3TA">
+    <title>Alejandro Chiquito | Backend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { DEFAULT: '#06b6d4', dark: '#0891b2', light: '#67e8f9' }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(180deg, #06b6d4, #0891b2, #0f172a); top: 0; }
+        @media (max-width: 768px) { .timeline::before { left: 16px; } }
+    </style>
 </head>
-<body class="text-gray-800 antialiased">
-    <nav
-      class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 "
-    >
-      <div
-        class="container px-4 mx-auto flex flex-wrap items-center justify-between"
-      >
-        <div
-          class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
-        >
-          <a
-            class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-            href="#presentacion"
-            >AleJCP</a
-          ><button
-            class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-            type="button"
-            onclick="toggleNavbar('example-collapse-navbar')"
-          >
-            <i class="text-white fas fa-bars"></i>
-          </button>
+<body class="bg-slate-900 text-slate-300 font-sans antialiased">
+
+    <!-- NAV -->
+    <nav id="nav" class="fixed top-0 w-full z-50 backdrop-blur-lg bg-slate-950/80 border-b border-slate-800/50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between py-3">
+            <a href="#hero" class="text-lg sm:text-xl font-bold text-white tracking-tight hover:text-brand transition-colors">
+                Ale<span class="text-brand">JCP</span>
+            </a>
+            <button id="menu-toggle" class="sm:hidden text-slate-300 hover:text-white text-xl focus:outline-none" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="menu" class="hidden sm:flex flex-col sm:flex-row w-full sm:w-auto mt-3 sm:mt-0 gap-1 sm:gap-6 text-sm font-medium">
+                <li><a href="#about" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Sobre Mí</a></li>
+                <li><a href="#experience" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Experiencia</a></li>
+                <li><a href="#skills" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Skills</a></li>
+                <li><a href="#projects" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Proyectos</a></li>
+                <li><a href="#contact" class="block py-2 px-3 text-slate-300 hover:text-brand transition-colors rounded-lg hover:bg-slate-800/50">Contacto</a></li>
+            </ul>
         </div>
-        <div
-          class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-          id="example-collapse-navbar"
-        >          
-          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">            
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="#conocimientos"
-                ><i
-                  class="lg:text-gray-300 text-gray-500 fa fa-laptop text-lg leading-lg "
-                ></i
-                ><span class="lg:hidden inline-block ml-2">Conocimientos</span></a
-              >
-            </li>
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="#proyectos"
-                ><i
-                  class="lg:text-gray-300 text-gray-500 fa fa-rocket text-lg leading-lg "
-                ></i
-                ><span class="lg:hidden inline-block ml-2">Proyectos</span></a
-              >
-            </li> 
-            <li class="flex items-center">
-              <a
-                class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="#contacto"
-                ><i
-                  class="lg:text-gray-300 text-gray-500 fa fa-envelope text-lg leading-lg "
-                ></i
-                ><span class="lg:hidden inline-block ml-2">Contacto</span></a
-              >
-            </li>           
-          </ul>
-        </div>
-      </div>
     </nav>
-    <main>
-      <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
-        <div class="absolute top-0 w-full h-full bg-center bg-cover" style="background-image: url(https://c.wallhere.com/photos/27/1e/colorful_lines-60649.png!d);">
-          <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
-        </div>
-        <div class="container relative mx-auto">
-          <div class="items-center flex flex-wrap">
-            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-              <div class="pr-12">
-                <h1 id="name" style="" class="text-white font-semibold text-5xl">
-                  AleJCP
-                </h1>
-                <p id="description" style="" class="mt-4 text-lg text-gray-300">
-                  Desarrollador de Software - Ingeniero de Sistemas
-                </p>
-              </div>
+
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-4 pt-16">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800"></div>
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 25% 50%, #06b6d4 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <img src="assets/img/alejandro.png" alt="Alejandro Chiquito" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto mb-6 border-4 border-brand shadow-lg shadow-brand/20 object-cover">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                Alejandro <span class="text-brand">Chiquito</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-400 mb-2 font-medium">Backend Developer</p>
+            <p class="text-slate-500 mb-8 max-w-lg mx-auto">C# .NET &amp; PHP · ERP Systems · Integraciones · Automatización</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#projects" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-slate-900 font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:shadow-brand/40">
+                    <i class="fas fa-rocket"></i> Ver Proyectos
+                </a>
+                <a href="Alejandro Jose Chiquito Petit C V.pdf" download class="inline-flex items-center gap-2 border border-slate-600 hover:border-brand text-slate-300 hover:text-brand font-semibold px-6 py-3 rounded-full transition-all duration-300">
+                    <i class="fas fa-download"></i> Descargar CV
+                </a>
             </div>
-          </div>
         </div>
-        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height: 70px;">
-          <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-            <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-slate-500 hover:text-brand transition-colors"><i class="fas fa-chevron-down text-2xl"></i></a>
         </div>
-      </div>      
-      <section class="relative py-20">
-        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px;">
-          <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-            <polygon class="text-white fill-current" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
-        </div>
-        <div class="container mx-auto px-4">
-          <div class="items-center flex flex-wrap">
-            <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-              <img alt="..." class="max-w-full rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80">
-            </div>
-            <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
-              <div class="md:pr-12">
-                <div id="presentacion" class="text-blue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blue-300">
-                  <i class="fas fa-rocket text-xl"></i>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="about" class="relative py-20 sm:py-28 bg-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 reveal">
+                <div class="w-48 h-48 sm:w-56 sm:h-56 flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl shadow-brand/10 border border-slate-700">
+                    <img src="assets/img/alejandro.png" alt="Alejandro Chiquito" class="w-full h-full object-cover">
                 </div>
-                <h3 class="text-3xl font-semibold">¡Mucho gusto!</h3>
-                <p class="mt-4 text-lg leading-relaxed text-gray-600">
-                  Me llamo Alejandro Chiquito y soy Ingeniero de Sistemas, con más de dos años de experiencia en el análisis, diseño y desarrollo de sistemas de información, capaz de autogestionar proyectos de manera independiente aportando soluciones efectivas. Actualmente con el cargo de Desarrollador C# en Informática Unix C.A. 
-                  	<br>	
-                    <br>
-                    <h3 class="text-3xl font-semibold">Algunas de mis habilidades son:</h3>
-                </p>
-                <ul class="list-none mt-6">
-                  <li class="py-2">
-                    <div class="flex items-center">
-                      <div>
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3"><i class="fas fa-paper-plane"></i></span>
-                      </div>
-                      <div>
-                        <h4 class="text-gray-600">
-                          Autodidacta
-                        </h4>
-                      </div>
+                <div>
+                    <p class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Sobre Mí</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">Ingeniero de Sistemas &amp;<br><span class="text-brand">Backend Developer</span></h2>
+                    <p class="text-slate-400 leading-relaxed text-base sm:text-lg reveal">
+                        Especializado en el ecosistema <strong class="text-white">.NET (C#)</strong> y <strong class="text-white">PHP</strong>, con experiencia comprobada en desarrollo de sistemas ERP, automatización de procesos empresariales e integración con APIs y hardware. Diseño soluciones backend que escalan, destacando en la implementación de pipelines <strong class="text-brand">CI/CD</strong> y despliegues con <strong class="text-white">Nginx</strong> y <strong class="text-white">Apache</strong> en entornos Linux.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 reveal">
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
+                            <div class="text-3xl font-extrabold text-brand">40+</div>
+                            <div class="text-slate-400 text-sm mt-1">Sucursales con deploy<br>automatizado</div>
+                        </div>
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
+                            <div class="text-3xl font-extrabold text-brand">10K+</div>
+                            <div class="text-slate-400 text-sm mt-1">Productos actualizados<br>en tiempo real</div>
+                        </div>
+                        <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-center">
+                            <div class="text-3xl font-extrabold text-brand">4+</div>
+                            <div class="text-slate-400 text-sm mt-1">Años de experiencia<br>en desarrollo</div>
+                        </div>
                     </div>
-                  </li>
-                  <li class="py-2">
-                    <div class="flex items-center">
-                      <div>
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3"><i class="fas fa-paper-plane"></i></span>
-                      </div>
-                      <div>
-                        <h4 class="text-gray-600">Aprender sobre la marcha</h4>
-                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section id="experience" class="py-20 sm:py-28 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Experiencia</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Logros de Impacto</h2>
+
+            <div class="timeline relative space-y-12">
+                <!-- Job 1 -->
+                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
+                    <div class="md:w-5/12 md:text-right md:pr-10">
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">10/2022 — Presente</span>
+                        <h3 class="text-white font-bold text-lg">Desarrollador C# | .NET</h3>
+                        <p class="text-slate-400 text-sm">Informática Unix, C.A.</p>
                     </div>
-                  </li>
-                  <li class="py-2">
-                    <div class="flex items-center">
-                      <div>
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3"><i class="fas fa-paper-plane"></i></span>
-                      </div>
-                      <div>
-                        <h4 class="text-gray-600">Capacidad de trabajo en equipo</h4>
-                      </div>
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-7/12 md:pl-10 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Automaticé la actualización de precios para <strong class="text-white">+10,000 artículos</strong> en tiempo real integrando la API de etiquetas electrónicas AIMS, eliminando errores manuales.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Diseñé un sistema centralizado de despliegue que distribuye actualizaciones a <strong class="text-white">40+ sucursales</strong> simultáneamente, reduciendo el tiempo de deployment de horas a minutos.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Integré dispositivos biométricos <strong class="text-white">Hikvision</strong> mediante ISAPI y .NET SDK, automatizando el registro de asistencia para el cálculo de nómina.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Desarrollé módulo de <strong class="text-white">nómina</strong> adaptado a la legislación venezolana, asegurando compliance y precisión en prestaciones.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C#</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WinForms</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">ASP.NET Core</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">WCF</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">SQL Server</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">IIS</span>
+                        </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
+                    <div class="md:w-5/12 md:text-right md:pr-10">
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">08/2022 — Presente</span>
+                        <h3 class="text-white font-bold text-lg">Desarrollador Web</h3>
+                        <p class="text-slate-400 text-sm">Freelance / Independiente</p>
+                    </div>
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-7/12 md:pl-10 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Lideré el ciclo completo de desarrollo con clientes directos: desde el <strong class="text-white">análisis de requisitos</strong> hasta la implementación y capacitación, entregando soluciones funcionales con una sola sesión de onboarding.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Desplegué aplicaciones web con <strong class="text-white">Laravel</strong>, MVC y MySQL en servidores Linux Ubuntu con Nginx, aplicando CI/CD con <strong class="text-white">GitHub Actions</strong> para despliegues automatizados.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Laravel</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Nginx</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">GitHub Actions</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Ubuntu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
+                    <div class="md:w-5/12 md:text-right md:pr-10">
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">02/2022 — 07/2022</span>
+                        <h3 class="text-white font-bold text-lg">Desarrollador Web</h3>
+                        <p class="text-slate-400 text-sm">Hospital Dr. Jesús García Coello IVSS</p>
+                    </div>
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-7/12 md:pl-10 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Colaboré en el <strong class="text-white">mantenimiento evolutivo</strong> de la plataforma enigmaweb.cl, implementando nuevos módulos con <strong class="text-white">PHP CodeIgniter</strong> sin afectar la continuidad operativa del sistema.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">PHP</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">CodeIgniter</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MVC</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">MySQL</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start reveal">
+                    <div class="md:w-5/12 md:text-right md:pr-10">
+                        <span class="inline-block bg-brand/15 text-brand text-xs font-bold px-3 py-1 rounded-full mb-2">01/2017 — 07/2022</span>
+                        <h3 class="text-white font-bold text-lg">Profesor Universitario</h3>
+                        <p class="text-slate-400 text-sm">UNEFA · Lenguaje de Programación I</p>
+                    </div>
+                    <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full border-4 border-slate-900 z-10"></div>
+                    <div class="md:w-7/12 md:pl-10 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-brand mt-1 text-sm"></i>
+                            <p class="text-slate-400 text-sm">Formé a <strong class="text-white">+100 estudiantes</strong> en fundamentos de programación estructurada y orientada a objetos con C++, desarrollando contenidos sobre funciones, arreglos, apuntadores y recursividad.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">C++</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">POO</span>
+                            <span class="text-xs bg-slate-800 text-brand px-2 py-0.5 rounded border border-slate-700/50">Mentoría Técnica</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
-   <section id="conocimientos" class="pb-20 relative block bg-gray-300" style="padding: 20px;">   	
-   	<div class="flex flex-wrap">   	   		
-            <div id="card1" class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                    <i class="fas fa-globe"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Desarrollo Web</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Conozco y tengo buenas bases en tecnologías web como HTML, CSS, JavaScript, PHP
-                  </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 sm:py-28 bg-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Tech Stack</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Backend -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand/15 flex items-center justify-center"><i class="fas fa-code text-brand"></i></div>
+                        <h3 class="text-white font-bold">Backend &amp; Languages</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C#</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">.NET 8</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">ASP.NET Core</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WinForms</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">WCF</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PHP</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Laravel</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CodeIgniter</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">C++</span>
+                    </div>
                 </div>
-              </div>
+                <!-- Frontend -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center"><i class="fas fa-paint-brush text-emerald-400"></i></div>
+                        <h3 class="text-white font-bold">Frontend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">HTML5</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CSS3</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">JavaScript</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Bootstrap</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Tailwind CSS</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">jQuery</span>
+                    </div>
+                </div>
+                <!-- Databases -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center"><i class="fas fa-database text-cyan-400"></i></div>
+                        <h3 class="text-white font-bold">Databases &amp; ORMs</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SQL Server</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">PostgreSQL</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MySQL</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">MariaDB</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Entity Framework</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Eloquent ORM</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Diagrama E-R</span>
+                    </div>
+                </div>
+                <!-- DevOps -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/15 flex items-center justify-center"><i class="fas fa-cloud-upload-alt text-purple-400"></i></div>
+                        <h3 class="text-white font-bold">DevOps &amp; Infra</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">GitHub Actions</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">CI/CD</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">IIS</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Nginx</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Apache</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">XAMPP</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Git</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Ubuntu</span>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center"><i class="fas fa-tools text-amber-400"></i></div>
+                        <h3 class="text-white font-bold">Tools &amp; IDEs</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Visual Studio</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">DevExpress</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">REST APIs</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">SOAP/WCF</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Hikvision ISAPI</span>
+                    </div>
+                </div>
+                <!-- Soft Skills + Certification -->
+                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/15 flex items-center justify-center"><i class="fas fa-star text-rose-400"></i></div>
+                        <h3 class="text-white font-bold">Certificaciones &amp; Soft Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs bg-rose-500/10 text-rose-300 px-2.5 py-1 rounded-full border border-rose-500/30">EFSET C1 Reading</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Inglés Técnico</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Mentoría</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Autogestión</span>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full border border-slate-700/50">Resolución de Problemas</span>
+                    </div>
+                </div>
             </div>
-            <div id="card2" class="w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                    <i class="fas fa-mobile"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Desarrollo Android Nativo</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Tengo bases sobre tenologías como JAVA, Android Studio IDE
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div id="card3" class="pt-6 w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
-                    <i class="fas fa-database"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Bases de Datos</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Tengo conocimientos de SQL, PostgreSQL y XAMPP/WAMPP Server
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-   	
-   </section>
-   <section class="pb-20 relative block bg-gray-300 " style="padding: 20px;">   	
-   	<div class="flex flex-wrap justify-center">   	   		            
-            <div id="card4" class=" w-full md:w-4/12 px-4 text-center ">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                    <i class="fas fa-desktop"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">Informática y Computación</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Conocimientos sobre reparación y mantenimiento de computadoras (Software y Hardware)
-                  </p>
-                </div>
-              </div>
-            </div>            
-          </div>
-   </section>
-   <section id="proyectos" class="pb-20 relative block bg-gray-300" style="padding: 20px; margin-bottom: 20px;">   	
-   	<div id="label1" class=" container bg-white text-center" style="border-radius: 6px; min-width: 100%;"><p class="font-semibold  italic" style=" font-size: 36px; margin-bottom: 20px; ">Proyectos</p></div>
-   	<div class="flex flex-wrap">   	   		
-            <div id="card5" class="transform motion-safe:hover:scale-110 lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">                 
-                  <h6 class="text-xl font-semibold" style="padding: 20px;font-family: Sansita Swashed; color: #DB4848; font-size: 35px">MiaPizza</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Sistema de pedidos para una pizzería
-                    <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Tecnologías:</li>
-                        <li>+HTML/CSS/JS</li>
-                    	<li>+PHP y MARIADB</li>                    	
-                    </ul>
-                    <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Principales funciones:</li>
-                        <li>+Permite guardar productos en un carrito</li>
-                    	<li>+Tienda de pizzas y sistema de usuarios lado del Cliente</li>
-                    	<li>+Sistema de administración de pedidos</li>	
-                    </ul>
-                    <br>
-                    <button onclick="toggleModal('modal-id')" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Ver demostración online</button>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div id="card6" class="w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">                  
-                  <h6 style="font-family: Magneto; padding: 20px; font-size: 35px;" class="text-xl font-semibold">Smart Shop</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                     Sistema de control y administración de inventario        
-                      <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Tecnologías:</li>
-                        <li>+HTML/CSS/JS</li>
-                    	<li>+PHP y MARIADB</li>                    	
-                    </ul>
-                    <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Principales funciones:</li>
-                        <li>+Sistema de control de usuario</li>
-                    	<li>+Sistema de control y administración de inventario</li>
-                    	<li>+Sistema de control y administración de compras y ventas</li>	
-                    </ul>
-                    <br>
-                    <button onclick="toggleModal('modal-id')" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Ver demostración online</button>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div id="card7" class="pt-6 w-full md:w-4/12 px-4 text-center">
-              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <div class="px-4 py-5 flex-auto">
-                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-600">
-                    <i class="fas fa-plus"></i>
-                  </div>
-                  <h6 class="text-xl font-semibold">HiMath</h6>
-                  <p class="mt-2 mb-4 text-gray-600">
-                    Aplicación didáctica sobre operaciones matemáticas
-                    <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Tecnologías:</li>
-                        <li>+JAVA</li>
-                    	<li>+SQLite</li>
-                    	<li>+Android Studio</li>	
-                    </ul>
-                    <ul class="text-left  text-gray-600">                    	
-                    	<br>
-                    <li class="font-semibold">Principales funciones:</li>
-                        <li>+Niveles desbloqueables</li>
-                    	<li>+Sistema de tienda y monedas</li>
-                    	<li>+¡Muy divertido!</li>	
-                    </ul>
-                    <br>
-                    <button onclick="toggleModal('modal-id');" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Descargar</button>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-   	
-   </section>
-   </main>
-      <footer class="pb-10 relative block bg-gray-900">
-        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px;">
-          <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-            <polygon class="text-gray-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
-          </svg>
         </div>
-        <div id="contacto" class="container mx-auto px-2 lg:pt-20 lg:pb-10">
-          <div class="flex flex-wrap text-center justify-center">
-            <div class="w-full lg:w-6/12 px-4">
-              <h2 class="text-4xl font-semibold text-white">¡Contáctame!</h2>
-              <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-                ¿Necesitas ayuda en tu proyecto?<br>
-                ¿Quieres crear una página para dar a conocer tu negocio en internet?<br>
-                ¡Contáctame!, Con gusto te responderé.<br>
-                <br>Puedes localizarme en las siguientes redes sociales:
-              </p>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="projects" class="py-20 sm:py-28 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <p class="text-brand font-semibold text-sm uppercase tracking-wider text-center mb-2 reveal">Portafolio</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-14 reveal">Casos de Estudio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Project 1 -->
+                <div class="bg-slate-800 border border-slate-700/50 rounded-2xl overflow-hidden group hover:border-brand/50 transition-all duration-300 reveal flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/img/projects/proyecto-1.jpg" alt="Sistema de Despliegue ERP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">DevOps &middot; CI/CD</span>
+                        <h3 class="text-white font-bold text-lg mb-3">Sistema Centralizado de Despliegue</h3>
+                        <div class="space-y-3 text-sm text-slate-400 flex-grow">
+                            <div><span class="text-amber-400 font-semibold">Problema:</span> 40+ sucursales requerían actualizaciones manuales de software, causando inconsistencias y horas de downtime.</div>
+                            <div><span class="text-brand font-semibold">Proceso:</span> Arquitectura cliente-servidor con WCF, pipeline CI/CD, actualizador incremental automático.</div>
+                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Deployments simultáneos en 40+ sucursales. Tiempo de actualización: de 4 horas a 5 minutos.</div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WCF</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">IIS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-slate-800 border border-slate-700/50 rounded-2xl overflow-hidden group hover:border-brand/50 transition-all duration-300 reveal flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/img/projects/proyecto-2.jpg" alt="Módulo de Precios API AIMS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Integración &middot; API</span>
+                        <h3 class="text-white font-bold text-lg mb-3">Actualización de Precios con API AIMS</h3>
+                        <div class="space-y-3 text-sm text-slate-400 flex-grow">
+                            <div><span class="text-amber-400 font-semibold">Problema:</span> Actualización manual de precios en etiquetas electrónicas para +10,000 productos, propensa a errores.</div>
+                            <div><span class="text-brand font-semibold">Proceso:</span> Integración con API REST de AIMS, módulo batch en WinForms, sincronización con SQL Server.</div>
+                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> +10,000 artículos actualizados en tiempo real. 0% margen de error. Proceso manual eliminado.</div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">REST API</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-slate-800 border border-slate-700/50 rounded-2xl overflow-hidden group hover:border-brand/50 transition-all duration-300 reveal flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/img/projects/proyecto-3.jpg" alt="Sistema de Nómina Biométrico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <span class="text-brand text-xs font-bold uppercase tracking-wider mb-1">Hardware &middot; SDK</span>
+                        <h3 class="text-white font-bold text-lg mb-3">Nómina + Integración Biométrica Hikvision</h3>
+                        <div class="space-y-3 text-sm text-slate-400 flex-grow">
+                            <div><span class="text-amber-400 font-semibold">Problema:</span> Registro manual de asistencia y cálculo de horas/hombre para nómina, sujeto a errores y fraudes.</div>
+                            <div><span class="text-brand font-semibold">Proceso:</span> Integración de dispositivos Hikvision vía ISAPI/.NET SDK. Lógica de nómina adaptada a LOTTT venezolana.</div>
+                            <div><span class="text-emerald-400 font-semibold">Resultado:</span> Automatización completa del registro. Cálculo de nómina: de días a minutos. Cumplimiento legal verificado.</div>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">C#</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">.NET SDK</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">WinForms</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">SQL Server</span>
+                            <span class="text-xs bg-slate-900 text-brand px-2 py-0.5 rounded">ISAPI</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>         
         </div>
-         <div class="mt-6 flex flex-wrap justify-center">
-              <a target="_blank" href="https://www.linkedin.com/in/alejcp" class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <i class="flex fab fa-linkedin"></i></a>
-                <a target="_blank" href="https://github.com/AleJCP" class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <i class="flex fab fa-github"></i>
-              </a>
-              <button target="_blank" onclick="copiarCorreoAlPortapapeles();" class="bg-white text-yellow-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
-                <i class="fa fa-envelope"></i>
-              </button>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="py-20 sm:py-28 bg-slate-950">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <p class="text-brand font-semibold text-sm uppercase tracking-wider mb-2 reveal">Contacto</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-5 reveal">¿Trabajamos Juntos?</h2>
+            <p class="text-slate-400 text-base sm:text-lg mb-10 reveal max-w-xl mx-auto">
+                Abierto a oportunidades como Backend Developer. Si buscas a alguien que entregue resultados medibles, conversemos.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <a href="https://www.linkedin.com/in/alejcp" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://github.com/AleJCP" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <button onclick="copiarCorreo()"
+                    class="flex items-center gap-2 bg-white/5 border border-slate-700 hover:border-brand text-white hover:text-brand px-6 py-3 rounded-full transition-all duration-300 font-medium cursor-pointer">
+                    <i class="fas fa-envelope"></i> <span id="email-text">Copiar Email</span>
+                </button>
             </div>
-             <div class="container mx-auto px-4">        
-        <hr class="my-6 border-gray-400">
-        <div class="flex flex-wrap items-center md:justify-between justify-center">
-          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div class="text-sm text-gray-600 font-semibold py-1">
-              Copyright © 2023 AleJCP
+            <div class="mt-8 reveal">
+                <a href="Alejandro Jose Chiquito Petit C V.pdf" download
+                    class="inline-flex items-center gap-2 text-slate-500 hover:text-brand transition-colors text-sm">
+                    <i class="fas fa-file-pdf"></i> Descargar CV (PDF)
+                </a>
             </div>
-          </div>
         </div>
-      </div>
-      </footer>  
-            
-     <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-  <div class="relative w-auto my-6 mx-auto max-w-3xl">
-    <!--content-->
-    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-      <!--header-->
-      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-        <h3 class="text-3xl font-semibold" style="">
-          No disponible por el momento
-        </h3>
-        <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('modal-id')">
-          <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-            ×
-          </span>
-        </button>
-      </div>
-      <!--body-->
-      <div class="relative p-6 flex-auto">
-        <p style="padding-right: 60px" class="my-4 text-blueGray-500 text-lg leading-relaxed">
-          Próximamente...
-        </p>
-      </div>
-      <!--footer-->
-      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-        <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="toggleModal('modal-id')">
-          Close
-        </button>        
-      </div>
-    </div>
-  </div>
-</div>
-<div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-  
+    </section>
 
-  <script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
-  <script>
-  	$(document).ready(function(){
-  		$('#name').fadeOut(function(){
-  			$('#name').text('Alejandro Jose Chiquito Petit')
-  		}).fadeIn();
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-slate-800 py-6 text-center text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-4">
+            &copy; 2026 Alejandro Chiquito Petit. Todos los derechos reservados.
+        </div>
+    </footer>
 
-  		$('#card1').fadeTo(0,0);
-  		$('#card2').fadeTo(0,0);
-  		$('#card3').fadeTo(0,0);
-  		$('#card4').fadeTo(0,0);
-  		$('#label1').fadeTo(0,0)
-  		$('#card5').fadeTo(0,0);
-  		$('#card6').fadeTo(0,0);
-  		$('#card7').fadeTo(0,0);
-  		
-  		var toggle = false;
-  		var toggle1 = false;
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('hidden');
+            document.getElementById('menu').classList.toggle('flex');
+        });
 
+        // Close mobile menu on link click
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 640) {
+                    document.getElementById('menu').classList.add('hidden');
+                    document.getElementById('menu').classList.remove('flex');
+                }
+            });
+        });
 
-    // Escuchar el evento scroll
-    $(window).on("scroll", function(evt) {
-      var scrollTop = $(window).scrollTop();
-      
-      if (scrollTop > 1000 && toggle == false) {
-      	$('#card1').fadeTo(700,1);
-      	$('#card2').fadeTo(700,1);
-      	$('#card3').fadeTo(700,1);
-      	$('#card4').fadeTo(700,1);
-      	toggle = true;
-   	  }
+        // Intersection Observer for scroll reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-   	  if (scrollTop > 1600 && toggle1 == false) {
-		$('#label1').fadeTo(700,1);   	  	
-      	$('#card5').fadeTo(700,1);
-      	$('#card6').fadeTo(700,1);
-      	$('#card7').fadeTo(700,1);      	      	
-      	toggle1 = true;	
-   	  }
-    });
-  	});
-  	
-  	
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function toggleNavbar(collapseID) {
-      document.getElementById(collapseID).classList.toggle("hidden");
-      document.getElementById(collapseID).classList.toggle("block");
-    }
-
-     function toggleModal(modalID){
-    document.getElementById(modalID).classList.toggle("hidden");
-    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-    document.getElementById(modalID).classList.toggle("flex");
-    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-  }
-
-    function copiarCorreoAlPortapapeles() {
-  var aux = document.createElement("input");
-  aux.setAttribute("value", 'alejandrojcp_18@hotmail.com');
-  document.body.appendChild(aux);
-  aux.select();
-  document.execCommand("copy");
-  document.body.removeChild(aux);
-  alert('Correo copiado al portapapeles')
-}
-  </script>
-
+        // Modern copy to clipboard
+        function copiarCorreo() {
+            const email = 'alejandrojcp_18@hotmail.com';
+            const btn = document.getElementById('email-text');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(() => {
+                    btn.textContent = '¡Copiado!';
+                    setTimeout(() => btn.textContent = 'Copiar Email', 2000);
+                });
+            } else {
+                const aux = document.createElement('input');
+                aux.value = email;
+                document.body.appendChild(aux);
+                aux.select();
+                document.execCommand('copy');
+                document.body.removeChild(aux);
+                btn.textContent = '¡Copiado!';
+                setTimeout(() => btn.textContent = 'Copiar Email', 2000);
+            }
+        }
+    </script>
 </body>
 </html>
